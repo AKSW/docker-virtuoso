@@ -1,0 +1,25 @@
+name: Docker push to Github
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build_and_push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Docker Setup Buildx
+        uses: docker/setup-buildx-action@v1.1.1
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: aksw/docker-virtuoso/docker-virtuoso
+          tag_with_ref: true
