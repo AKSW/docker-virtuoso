@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
-# Set Virtuoso commit SHA to Virtuoso 7 develop (27/06/2019)
-ENV VIRTUOSO_COMMIT d0d4935edebcba6489b185e6c6c6c14c34d2eade
+# Set Virtuoso commit SHA to Virtuoso 7.2.6.1 release (2021-06-22)
+ENV VIRTUOSO_COMMIT 64663f91c657aec14bbdcef8b6e5c9b6ac89cb8b
 
 # Build virtuoso from source and clean up afterwards
 RUN apt-get update \
